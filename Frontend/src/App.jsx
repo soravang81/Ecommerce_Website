@@ -1,11 +1,12 @@
 import {React , useEffect} from 'react'
-import { NavBar , LpBody} from './components/landing'
+import { HomePage} from './components/homepage'
 import { lazy , Suspense} from "react";
 import { BrowserRouter ,Routes, Route  } from "react-router-dom";
 import './App.css';
 import { ShoppingPage } from './components/shoppingpage';
 import { RecoilRoot } from 'recoil';
 import { LoginPage } from './components/loginpage';
+import { NavBar } from './components/navbar';
 
 function App() {
   return (
@@ -14,9 +15,9 @@ function App() {
         <BrowserRouter>
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
-              <Route path="/login" element={<LoginPage/>}></Route>
+              <Route path="/" element={<LoginPage/>}></Route>
               <Route path="/shop" element={<><ShoppingPage/><NavBar/></>}/>
-              <Route path="/home" element={<><LpBody/><NavBar/></>}/>
+              <Route path="/home" element={<><HomePage/><NavBar/></>}/>
             </Routes>
           </Suspense>
         </BrowserRouter>

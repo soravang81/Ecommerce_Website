@@ -17,6 +17,12 @@ const schema = new db.Schema({
     rating: String
 });
 
-const site = db.model("site", schema);
+const userdata = new db.Schema({
+    email : String,
+    password : String
+})
 
-module.exports = { site, connect };
+const site = db.model("site", schema);
+const users = db.model("user", userdata);
+
+module.exports = { site, connect , users };

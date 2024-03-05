@@ -1,6 +1,11 @@
 import { atom } from "recoil";
 
-export const currData = atom({
+const currData = atom({
     key: "currData",
     default: []
 });
+const token = atom({
+    key : "token",
+    default : ""
+})
+export{ currData , token }

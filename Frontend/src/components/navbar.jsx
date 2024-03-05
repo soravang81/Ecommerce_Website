@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function NavBar(){
+export function NavBar(){
     const Navigate = useNavigate();
     return(
         <div className="navbar-container">
@@ -14,22 +14,10 @@ function NavBar(){
                     <button className="navbarbtn"><span className="navbarbtntxt">Contact us</span></button>
                     <button className="navbarbtn"><span className="navbarbtntxt">Filter</span></button>
                     <input type="text" placeholder="   Search for any item" id="search"/>
-                    <button className="navbarbtn" id="profile" onClick={()=>{Navigate("/login")}}><span className="navbarbtntxt">Login</span></button>
+                    <button className="navbarbtn" id="profile" onClick={()=>{Navigate("/")}}><span className="navbarbtntxt">Login</span></button>
                 </div>
             </div>
         </div>
             
     )
 }
-function LpBody(){
-    const Navigate = useNavigate();
-    return(
-    <div className="landingmain">
-        <div className="lpbody">
-            <h1><span id="lpbodyh1">Summer sale is Live.</span></h1>
-            <button id="shopnowbtn" onClick={()=>Navigate("/shop")}><span id="shopnowtxt">Shop Now</span></button>
-        </div>
-    </div>
-    )
-}
-export {NavBar , LpBody}

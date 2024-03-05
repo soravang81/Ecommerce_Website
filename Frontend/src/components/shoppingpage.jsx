@@ -7,7 +7,6 @@ import { currData } from "../store/cardstate";
 
 export function ShoppingPage(){
     const putCurrData = useSetRecoilState(currData)
-    const getCurrData = useRecoilValue(currData)
     const [count , setCount] = useState(0)
     useEffect(()=>{
         async function getdata(){

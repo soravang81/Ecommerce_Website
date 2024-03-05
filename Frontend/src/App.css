@@ -3,12 +3,17 @@
     box-sizing: border-box;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
-body{
-    height: 100vh;
-    background-size:cover;
-    background-position: center;
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .main{
     display: flex;
     flex-direction: column;
@@ -83,13 +88,15 @@ body{
 /* -------------------------------------------Landing page Body-----------------------------------------------------------*/
 .landingmain{
     background-image: url(./components/imaggee-03.jpeg.jpg);
+    background-size: cover;
+    background-position:  right;
     min-height: 100vh;
 }
 .lpbody{
     min-height: auto;
     position: absolute;
-    top:18rem;
-    left :12rem;
+    top:35vh;
+    left :12vw;
     display: flex;
     flex-direction: column;
     gap : 2rem;
@@ -130,7 +137,7 @@ body{
 /* -----------------------------------------        Card          -------------------------------------------------------- */
 
 .cardrenderer {
-    padding: 4rem 5.5rem;
+    padding: 2% 5%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -139,17 +146,21 @@ body{
     border: 1px solid black;
     background-color: white;
     width : 22rem;
+    max-width: 22rem;
     height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin :2rem;
+    box-shadow: 0px 0px 25px 3px rgba(124, 122, 240, 0.623);
+    position: relative;
 }
 .card-container:hover{
     cursor: pointer;
 }
 .card {
-    width : 21.7rem;
+    width : inherit;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -163,7 +174,7 @@ body{
     height: 100%;
 }
 .cardtextdiv{
-    width: inherit;
+    width: fit-content;
     padding :1.2rem;
 }
 .cardimage{
@@ -189,6 +200,7 @@ body{
     align-items: center;
     flex-direction: column;
     gap: 2rem;
+    box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.623);
 }
 .login-container2 {
     display: flex;
@@ -203,7 +215,7 @@ body{
     min-height: 100vh;
     background-image: url(./components/jujutsu-kaisen-3840x2743-9278.jpg);
     background-size: cover;
-    overflow: hidden; /* Ensure overflow is hidden to prevent background from showing outside the container */
+    overflow: hidden;
 }
 
 
