@@ -2,10 +2,12 @@ import { useEffect , useState} from "react"
 import axios  from "axios"
 import { DisplayCards } from "./card"
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { currData } from "../store/cardstate";
+import { currData , token} from "../store/cardstate";
 
 
 export function ShoppingPage(){
+    const Token = useRecoilValue(token)
+    console.log(Token)
     const putCurrData = useSetRecoilState(currData)
     const [count , setCount] = useState(0)
     useEffect(()=>{

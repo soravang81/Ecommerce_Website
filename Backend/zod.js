@@ -10,8 +10,7 @@ const loginValidate = zod.object({
             const isValid = loginValidate.parse(body);
         }
         catch(e){
-            req.msg = "Invalid input values"
-            console.log("error in zod")
+            req.msg = "Invalid input values";
         }
         next();
     }
