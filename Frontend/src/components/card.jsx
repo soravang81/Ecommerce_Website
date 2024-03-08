@@ -22,6 +22,10 @@ export function DisplayCards(){
                             <h3 className="cardtext" id="cardprice">{data.price}</h3><br/>
                             <h3 className="cardtext" id="cardrating">{data.rating}</h3><br/>
                         </div>
+                        <div className="lwrcardbtndiv">
+                            <button className="lwrcardbtns" id="buy" ><span className="buynowtxt">Buy Now</span></button>
+                            <button className="lwrcardbtns" id="cart" ><span className="buynowtxt">Add to cart</span></button>
+                        </div>
                     </div>
                 </div>
             </div>

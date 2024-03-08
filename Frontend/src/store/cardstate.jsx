@@ -4,8 +4,12 @@ const currData = atom({
     key: "currData",
     default: []
 });
-const token = atom({
-    key : "token",
+const tokenAtom = atom({
+    key : "tokenAtom",
     default : ""
 })
-export{ currData , token }
+const fetchData = atom({
+    key : "fetchData",
+    default : (0)
+})
+export{ currData , tokenAtom , fetchData }

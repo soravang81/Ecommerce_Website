@@ -7,7 +7,7 @@ const { connect, site, users } = require("./db");
 const { verifyLogins } = require("./zod");
 const { verifyToken } = require("./verifytoken")
 const jwt = require("jsonwebtoken")
-const jwtkey = "ncua234wef7fwywuIAHa";
+const {jwtkey} = require("./jwtkey")
 
 app.use(cors());
 app.use(express.json());
@@ -51,12 +51,22 @@ app.post("/signup" ,verifyLogins , async (req,res)=>{
     if(!req.msg){
         try{
             const {email,password} = req.body;
-            const userData = new users({email , password})
-            await userData.save();
-            return res.json({
-                msg : "Successfully created account. Now you can Login.",
-                res : true
-            })
+            const result = await users.findOne({ email: email , password : password });
+            if(result !==null){
+                return res.json({
+                    msg : "User already exists. Try to login with different email",
+                    res : true
+                })
+            }
+            else{
+                const userData = new users({email , password})
+                await userData.save();
+                return res.json({
+                    msg : "Successfully created account. Now you can Login.",
+                    res : true
+                })
+            }
+            
         }
         catch(e){
             return res.json({
@@ -78,13 +88,15 @@ app.post("/login", verifyLogins, async (req, res) => {
     if(!req.msg){
         try {
             const result = await users.findOne({ email: email , password : password });
-    
-            if (result === null) {
-                return res.send("User does not exist. Please signup first.");
+            if (result == null) {
+                console.log("reached")
+                return res.json({
+                    msg : "User does not exist. Please signup first."
+                })
             }
             else {
-                const token = jwt.sign({email},jwtkey);
-                return res.json({
+                const token = await jwt.sign({email},jwtkey);
+                return res.setHeader("Authorization" , `Bearer ${token}`).json({
                     result : true,
                     token : token
                 })

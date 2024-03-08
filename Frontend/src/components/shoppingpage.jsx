@@ -2,12 +2,11 @@ import { useEffect , useState} from "react"
 import axios  from "axios"
 import { DisplayCards } from "./card"
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { currData , token} from "../store/cardstate";
-
+import { currData , tokenAtom} from "../store/cardstate";
+import { fetchData } from "../store/cardstate";
 
 export function ShoppingPage(){
-    const Token = useRecoilValue(token)
-    console.log(Token)
+    const setRefetch = useSetRecoilState(fetchData)
     const putCurrData = useSetRecoilState(currData)
     const [count , setCount] = useState(0)
     useEffect(()=>{
@@ -16,7 +15,7 @@ export function ShoppingPage(){
             putCurrData(res.data.jsondata)
     }
     getdata()
-}, [setCount]
+}, [setRefetch]
     )
     return(
         <div className="shoppingmain">
