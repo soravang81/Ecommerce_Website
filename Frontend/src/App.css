@@ -119,12 +119,11 @@ body {
     font-weight: 700;
 }
 /* ------------------------------------------       Shopping Page      ----------------------------------------------------- */
-.shoppingmain{
+.shoppingmain , .shoppingmain-container{
     min-height: 100vh;
     min-width: 100vw;
-    
     background-color: rgb(255, 232, 232);
-    margin-top :5rem;
+    margin-top :2.5rem;
 }
 .pagecounterbtn{
     padding : 1rem;
@@ -134,7 +133,7 @@ body {
     bottom: 5rem;
     left: 50%;
 }
-/* -----------------------------------------        Card          -------------------------------------------------------- */
+/* -----------------------------------------        cart          -------------------------------------------------------- */
 
 .cardrenderer {
     padding: 2% 5%;
@@ -198,6 +197,14 @@ body {
 .Page1{
     display: flex;
     flex-flow: wrap;
+    justify-content: center;
+}
+.addtocartpopup{
+    position: fixed;
+    z-index: 100;
+    margin-top: 3rem;
+    font-size: 2rem;
+    font-weight: 700;
 }
 /* --------------------------------------------------    Login Page  ----------------------------------------------------- */
 .loginmain {
@@ -271,6 +278,12 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.402);
     border-radius: 22px;
 }
+.loginerr{
+    padding-left: 2rem;
+    color: rgb(176, 0, 0);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
 .togglebtn{
     padding :0.2rem 0.5rem;
     border: none;
@@ -294,4 +307,36 @@ body {
     font-weight: 500;
     text-decoration: underline;
 }
+/* -------------------------------------------      CART      -------------------------------------------------------------- */
+.cartrenderer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2rem;
+    padding-top: 2rem;
+}
+.cartmain{
+    border: 1px solid black;
+    width: auto;
+}
+.cartitems{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    gap:0px;
+    width: 45vw;
+}
+.cartimage{
+    height: 12em;
+    padding:2rem;
 
+}
+.carttextdiv{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 12px;
+    justify-content: center;
+}

@@ -1,4 +1,5 @@
 const db = require("mongoose");
+const { number } = require("zod");
 
 const connect = async () => {
     try {
@@ -22,7 +23,16 @@ const userdata = new db.Schema({
     password : String
 })
 
+const cartData = new db.Schema({
+    id : String,
+    count : {
+        type : Number,
+        default : 1
+    }
+})
+
 const site = db.model("site", schema);
 const users = db.model("user", userdata);
+const cart = db.model("cart", cartData);
 
-module.exports = { site, connect , users };
+module.exports = { site, connect , users , cart};

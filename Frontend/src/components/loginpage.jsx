@@ -1,30 +1,21 @@
 import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { tokenAtom } from "../store/cardstate";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { tokenAtom  , errormsg} from "../store/cardstate";
 
 export function LoginPage() {
-    const token = useRecoilValue(tokenAtom);
-    const setToken = useSetRecoilState(tokenAtom);
+   
+    const [token ,setToken] = useRecoilState(tokenAtom);
     const navigate = useNavigate();
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
-    const [errorMsg, setErrorMsg] = useState("");
+    const [errorMsg, setErrorMsg] = useRecoilState(errormsg)
     const [isLogin, setIsLogin] = useState(true);
 
     const emailField = useRef(null);
     const passField = useRef(null);
-
-    useEffect(() => {
-        const storedToken = localStorage.getItem('token');
-        if (storedToken) {
-            setToken(storedToken);
-            axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
-        }
-    }, [setToken]);
 
     async function loginOrSignup() {
         setEmail("");
@@ -34,13 +25,15 @@ export function LoginPage() {
         try {
             const response = await axios.post(`http://localhost:3000/${isLogin ? 'login' : 'signup'}`, { email, password });
             const { data } = response;
-
+            console.log(data)
             if (data.result===true) {
                 setToken(data.token);
-                axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
-                localStorage.setItem('token', data.token);
+                const bearertoken = `Bearer ${data.token}`
+                localStorage.setItem('token', bearertoken);
                 navigate("/home");
+                console.log("savedtoken" , data.token)
             } else {
+                console.log(data)
                 setErrorMsg(data.msg);
                 setError(true);
             }
@@ -93,7 +86,7 @@ export function LoginPage() {
                             value={password} 
                             placeholder="Enter your password"
                         />
-                        {error && <div className="loginerr">{errorMsg}</div>}
+                        {error && <div className="loginerr">{"*"+errorMsg}</div>}
                     </div>
                     <div className="loginbuttons">
                         <button 
