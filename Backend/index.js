@@ -173,7 +173,6 @@ app.post("/login", verifyLogins, async (req, res) => {
         try {
             const result = await users.findOne({ email: email , password : password });
             if (result == null) {
-                console.log("reached")
                 return res.json({
                     msg : "User does not exist. Please signup first."
                 })

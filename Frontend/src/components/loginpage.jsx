@@ -23,7 +23,7 @@ export function LoginPage() {
         setError(false);
 
         try {
-            const response = await axios.post(`https://ecommerce-website-g6pi.vercel.app/${isLogin ? 'login' : 'signup'}`, { email, password });
+            const response = await axios.post(`http://localhost:3000/${isLogin ? 'login' : 'signup'}`, { email, password });
             const { data } = response;
             console.log(data)
             if (data.result===true) {
