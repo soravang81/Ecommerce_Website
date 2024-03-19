@@ -1,15 +1,9 @@
 const db = require("mongoose");
-const { number } = require("zod");
 
 const connect = async () => {
-    try {res.json({
-            msg : "connecting"
-        })
+    try {
         await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart"
         );
-        return res.json({
-            msg : "connected"
-        })
         console.log("Connected to MongoDB");
     } catch (error) {
         console.error("MongoDB connection error:", error);

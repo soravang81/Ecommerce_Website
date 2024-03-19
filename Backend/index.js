@@ -11,7 +11,7 @@ const {jwtkey} = require("./jwtkey")
 
 app.use(cors());
 app.use(express.json());
-await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart");
+
 let jsondata = []
 app.get("/shoes" ,verifyToken , async (req,res)=>{
     if(!req.msg){
@@ -172,9 +172,6 @@ app.post("/login", verifyLogins, async (req, res) => {
     if(!req.msg){
         try {
             const result = await users.findOne({ email: email , password : password });
-            return res.json({
-                result
-            })
             if (result == null) {
                 return res.json({
                     msg : "User does not exist. Please signup first."
