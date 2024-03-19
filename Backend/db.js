@@ -2,7 +2,7 @@ const db = require("mongoose");
 
 const connect = async () => {
     try {
-        await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart"
+        await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart",{serverSelectionTimeoutMS: 30000}
         );
         console.log("Connected to MongoDB");
     } catch (error) {
