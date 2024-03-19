@@ -18,7 +18,7 @@ export function ShoppingPage(){
             
             const token = localStorage.getItem("token")
             if(verified == true){
-                const res = await axios.get("http://localhost:3000/shoes",{ headers: {
+                const res = await axios.get("https://ecommerce-website-g6pi.vercel.app/shoes",{ headers: {
                 "Content-Type": "application/json",
                 "Authorization": token
                 }

@@ -39,7 +39,7 @@ const cartData = atom({
     default: selector({
         key: "cartDataSelector",
         get: async () => {
-            const res = await axios.get("http://localhost:3000/cart", {
+            const res = await axios.get("https://ecommerce-website-g6pi.vercel.app/cart", {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": token

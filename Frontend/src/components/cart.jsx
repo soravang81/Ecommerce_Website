@@ -13,7 +13,7 @@ export default function Cart(){
         const fetchCartData = async ()=>{
             console.log("refetched cart")
             const token = localStorage.getItem("token")
-            const res = await axios.get("http://localhost:3000/cart" , {headers : {
+            const res = await axios.get("https://ecommerce-website-g6pi.vercel.app/cart" , {headers : {
             "Content-Type": "application/json",
             "Authorization": token
             }})
