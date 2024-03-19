@@ -11,7 +11,7 @@ const {jwtkey} = require("./jwtkey")
 
 app.use(cors());
 app.use(express.json());
-
+await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart");
 let jsondata = []
 app.get("/shoes" ,verifyToken , async (req,res)=>{
     if(!req.msg){
