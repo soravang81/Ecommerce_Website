@@ -9,7 +9,9 @@ const { verifyToken } = require("./verifytoken")
 const jwt = require("jsonwebtoken")
 const {jwtkey} = require("./jwtkey")
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://shoemate.vercel.app/'
+  }));
 app.use(express.json());
 
 let jsondata = []
