@@ -2,7 +2,9 @@ const db = require("mongoose");
 const { number } = require("zod");
 
 const connect = async () => {
-    try {
+    try {res.json({
+            msg : "connecting"
+        })
         await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart"
         );
         return res.json({
