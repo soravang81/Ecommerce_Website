@@ -14,13 +14,6 @@ app.use(express.json());
 
 let jsondata = []
 app.get("/shoes" ,verifyToken , async (req,res)=>{
-    res.setHeader('Access-Control-Allow-Credentials', true)
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-    res.setHeader(
-        'Access-Control-Allow-Headers',
-        'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  )
     if(!req.msg){
         const data = await site.find({}).limit(39);
         jsondata = data.map(({ _id , title, link, price, rating }) => ({
