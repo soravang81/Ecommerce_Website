@@ -2,7 +2,7 @@ const db = require("mongoose");
 
 const connect = async () => {
     try {
-        await db.connect("mongodb+srv://vercel-admin-user:UkKn2hZ4RqA1eG6i@souravangral18.w6ltoci.mongodb.net/Shoekart?retryWrites=true&w=majority"
+        await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart",{serverSelectionTimeoutMS: 30000}
         );
         console.log("Connected to MongoDB");
     } catch (error) {
