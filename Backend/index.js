@@ -39,6 +39,7 @@ app.get("/shoes" ,verifyToken , async (req,res)=>{
 let cartjsondata = []; 
 
 app.get("/cart", verifyToken, async (req, res) => {
+
     const cartitems = await cart.find({});
     
     try {
@@ -131,7 +132,7 @@ app.post("/uploaddata", async (req, res) => {
 });
 
 app.post("/signup" ,verifyLogins , async (req,res)=>{
-    
+    await connect();    
     if(!req.msg){
         try{
             const {email,password} = req.body;
@@ -168,6 +169,7 @@ app.post("/signup" ,verifyLogins , async (req,res)=>{
 
 })
 app.post("/login", verifyLogins, async (req, res) => {
+    await connect();
     const { email, password } = req.body;
     if(!req.msg){
         try {
@@ -203,7 +205,12 @@ app.post("/login", verifyLogins, async (req, res) => {
 
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT}`);
-    connect();
+    const res = await connect();
+    res.json({
+        msg : "db connected successfully",
+        res : true
+    })
+
 });
