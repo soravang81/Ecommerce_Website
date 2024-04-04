@@ -1,8 +1,9 @@
 const db = require("mongoose");
 
 const connect = async () => {
+    const url = process.env.DATABASE_URL;
     try {
-        await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart",{serverSelectionTimeoutMS: 240000}
+        await db.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true }
         );
         console.log("Connected to MongoDB");
     } catch (error) {
