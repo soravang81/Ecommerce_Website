@@ -22,7 +22,7 @@ export function DisplayCards(){
             setreFetchCartData(FetchCartData+1)
             
             const token = localStorage.getItem("token")
-            const res = await axios.post("http://13.49.246.102:3000/cart/add" , {id : data.id}, {headers : {
+            const res = await axios.post("http://backend.skillcode.website/cart/add" , {id : data.id}, {headers : {
                 Authorization : token
             }})
             if (res.data.msg) {
