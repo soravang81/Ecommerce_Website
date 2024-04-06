@@ -13,7 +13,7 @@ export default function Cart(){
         const fetchCartData = async ()=>{
             console.log("refetched cart")
             const token = localStorage.getItem("token")
-            const res = await axios.get("http://backend.skillcode.website/cart" , {headers : {
+            const res = await axios.get("https://backend.skillcode.website/cart" , {headers : {
             "Content-Type": "application/json",
             "Authorization": token
             }})

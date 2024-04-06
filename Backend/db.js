@@ -3,7 +3,7 @@ const db = require("mongoose");
 const connect = async () => {
     const url = process.env.DATABASE_URL;
     try {
-        await db.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true }
+        await db.connect("mongodb+srv://soravang81:Sorav%401@souravangraldb.lfaakvp.mongodb.net/Shoekart",{ useNewUrlParser: true, useUnifiedTopology: true }
         );
         console.log("Connected to MongoDB");
     } catch (error) {

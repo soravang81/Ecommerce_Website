@@ -23,7 +23,7 @@ export function LoginPage() {
         setError(false);
 
         try {
-            const response = await axios.post(`http://backend.skillcode.website/${isLogin ? 'login' : 'signup'}`, { email, password });
+            const response = await axios.post(`https://backend.skillcode.website/${isLogin ? 'login' : 'signup'}`, { email, password });
             const { data } = response;
             console.log(data)
             if (data.result===true) {

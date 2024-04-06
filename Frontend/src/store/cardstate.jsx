@@ -39,7 +39,7 @@ const cartData = atom({
     default: selector({
         key: "cartDataSelector",
         get: async () => {
-            const res = await axios.get("http://backend.skillcode.website/cart", {
+            const res = await axios.get("https://backend.skillcode.website/cart", {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": token

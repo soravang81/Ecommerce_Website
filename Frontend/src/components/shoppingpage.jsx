@@ -18,7 +18,7 @@ export function ShoppingPage(){
             
             const token = localStorage.getItem("token")
             if(verified == true){
-                const res = await axios.get("http://backend.skillcode.website/shoes",{ headers: {
+                const res = await axios.get("https://backend.skillcode.website/shoes",{ headers: {
                 "Content-Type": "application/json",
                 "Authorization": token
                 }
