@@ -15,10 +15,10 @@ export function NavBar(){
                     <button className="logo"><span id="logotxt">ShoeMaTe</span></button>
                 </div>
                 <div className="navbar-right">
-                    <button className="navbarbtn" onClick={()=>{Navigate("/home");window.location.reload()}}><span className="navbarbtntxt">Home</span></button>
-                    <button className="navbarbtn" onClick={()=>{Navigate("/shop") ; setRefetch(fetch+1); setToken(null);window.location.reload();}}><span className="navbarbtntxt">Shop</span></button>
+                    <button className="navbarbtn" onClick={()=>{Navigate("/home")}}><span className="navbarbtntxt">Home</span></button>
+                    <button className="navbarbtn" onClick={()=>{Navigate("/shop") ; setRefetch(fetch+1);}}><span className="navbarbtntxt">Shop</span></button>
                     <button className="navbarbtn" onClick={()=>{Navigate("/");window.location.reload();localStorage.removeItem("token")}}><span className="navbarbtntxt">Logout</span></button>
-                    <button className="navbarbtn" onClick={()=>{Navigate("/cart"); setreFetchCartData(FetchCartData+1); console.log(FetchCartData)}}><span className="navbarbtntxt">Cart</span></button>
+                    <button className="navbarbtn" onClick={()=>{Navigate("/cart"); setreFetchCartData(FetchCartData+1);}}><span className="navbarbtntxt">Cart</span></button>
                     <input type="text" placeholder="   Search for any item" id="search"/>
                     <button className="navbarbtn" id="profile" onClick={()=>{Navigate("/")}}><span className="navbarbtntxt">Login</span></button>
                 </div>
